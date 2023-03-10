@@ -1,5 +1,8 @@
 package com.hindustaniBhau.jpademo;
 
+import net.bytebuddy.implementation.bind.annotation.Default;
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,6 +17,7 @@ public class User {
     int rollNo;
 
     String name;
+
 
     int age;
 
