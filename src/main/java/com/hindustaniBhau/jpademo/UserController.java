@@ -18,6 +18,7 @@ public class UserController {
     }
 
     @GetMapping("/get_users")
+
     public List<User> getUsers(){
         return userService.getUsers();
     }
@@ -28,9 +29,29 @@ public class UserController {
     }
 
     // delete by a roll no
+    @GetMapping("/del_roll")
+    public String deleteUser(@RequestParam("rollNo") int rollNo){
+        userService.deleteUser(rollNo);
+        return "User following Rollno has been deleted";
+    }
 
-    // delete all the users
+    // delete all the user
+    @DeleteMapping("/deluser")
+    public String delUsers(){
+        userService.delUsers();
+        return "Users has been deleted";
+    }
 
-    // update a user by id
+    // update user by id
+    @PutMapping("/change")
+    public void updateStatus(@RequestParam Integer id){
+        userService.updateStatus(id);
+    }
+
+//    @PutMapping("/update")
+//    public ResponseEntity<Admin> updateAdminPassword(@RequestParam Integer adminId, @RequestParam String password){
+//        Admin updatedAdmin = adminService.updatePassword(adminId, password);
+//        return new ResponseEntity<>(updatedAdmin, HttpStatus.OK);
+//    }
 
 }
